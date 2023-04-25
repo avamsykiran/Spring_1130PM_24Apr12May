@@ -103,6 +103,12 @@ Spring
 
             Annotation Based Configuration
 
+                @Configuration
+                @ComponentScan("base-package")
+                class MyBeanConfig{
+
+                }
+
                 @Component
                     @Servcie
                     @Repository
@@ -161,6 +167,7 @@ Spring
                     }
                 }
             
+
             
 
 
