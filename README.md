@@ -154,6 +154,11 @@ Spring
                                             }
 
                                         }
+
+                @PropertySource("classpath:fileName.properties")
+                @Value(spEL)
+
+                @Scope("singleton|prototype|request|session|global-session")
             
             Java Based Configuration
 
