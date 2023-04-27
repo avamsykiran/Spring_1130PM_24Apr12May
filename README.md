@@ -173,7 +173,63 @@ Spring
                 }
             
 
-            
+    Spring Boot
+    -------------------------------------------------------------------------------
+
+        is a spring module that offers auto-configuration and thus promoting
+        rapid application development.
+
+        spring context          where is the properties
+                                what is the bae package
+                                what is the configuration class ...etc.,
+
+        spring jdbc              what type of datasource and jdbctemplate are we using
+
+        spring security         what type of authourization and authentication we use
+                                what is the source of user id and password records
+                                how roles work ..et.,
+
+                                .......etc.,
+
+        these configuaraion by default provided by Spring Boot as and when a dependency
+        of that module is detected. And hence the developer need not worry of suppling the
+        config and hence can proceed to the application logic and this promotes rapid
+        application development. however, the automatically provided config can be cusomized
+        if needed.
+
+
+        @SpringBootApplication
+            = @Configuration + 
+                @ComponentScan("thePackageOfTheClassOnWhichThisAnnotationIsApplied") +
+                @PropertySource("classpath:application.properties")
+
+        Spring Boot app can be created in three differetn ways
+            1. Using 'Spring Starter Project' wizard from STS.
+            2. use 'http://start.spring.io' web site to create a project and import it into any IDE.
+            3. use Spring Boot CLI and create a project and import it into any IDE.
+
+        @SpringBootApplication
+        public class SpringBootDemoApplication {
+
+            public static void main(String[] args) {
+                // can not use ApplicationContext here, as it is not created yet
+                SpringApplication.run(SpringBootDemoApplication.class, args);
+                // can not use ApplicationContext here, as it is destroyed already.
+            }
+
+        }
+
+        SpringApplication.run
+            1. it create an ApplicationContext taking the main class as configuration class.
+            2. the ApplicationContext will scan for components and prepare a bena injection plan
+            3. the Spring Runners are executed (if any)
+            4. the embeded servers are initiated (if any)
+            5. the ApplicationContext is destroyed just before the main exits.
+
+
+        
+
+
 
 
 
