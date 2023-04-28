@@ -197,7 +197,6 @@ Spring
         application development. however, the automatically provided config can be cusomized
         if needed.
 
-
         @SpringBootApplication
             = @Configuration + 
                 @ComponentScan("thePackageOfTheClassOnWhichThisAnnotationIsApplied") +
@@ -222,12 +221,61 @@ Spring
         SpringApplication.run
             1. it create an ApplicationContext taking the main class as configuration class.
             2. the ApplicationContext will scan for components and prepare a bena injection plan
-            3. the Spring Runners are executed (if any)
+            3. the CommadnLineRunner or ApplicationRunner are executed (if any)
             4. the embeded servers are initiated (if any)
             5. the ApplicationContext is destroyed just before the main exits.
 
 
+    Spring JDBC on Spring Boot
+    ------------------------------------------------------------------------------------
+
+        Maven Dependencies
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+            </dependency>
+
+        Configuration
+
+            spring.datasource.url=jdbc:mysql://localhost:3306/databaseName
+            spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+            spring.datasource.username=guest_user
+            spring.datasource.password=guest_password
+
+        JdbcTemplate
+            ::queryForObject(selectQry)
+            ::update(dmlStatement)
         
+        NamedParameterJdbcTemplate
+
+        database script
+
+             create database springJdbcDemoDB;
+             use springJdbcDemoDB;
+
+             create table Emps(
+                empId int primary key auto_increment,
+                ename varchar(50) not null,
+                sal double not null
+             );
+
+             insert into emps(ename,sal) 
+             values("Vamsy Kiran",90000);
+
+             insert into emps(ename,sal) 
+             values("Suseela",95000);
+
+             insert into emps(ename,sal) 
+             values("Sagar",99000);
+
+        
+
 
 
 
