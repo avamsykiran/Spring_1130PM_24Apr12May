@@ -274,7 +274,20 @@ Spring
              insert into emps(ename,sal) 
              values("Sagar",99000);
 
+        Assignment # 1:
+
+            Develop a Spring Boot based console application using Spring JDBC to 
+            perform CRUD operation on the Entity:
+                
+                Item        
+                    itemId : int
+                    name : String
+                    price : double
+                    packagedDate : LocalDate
         
+
+
+
 
 
 

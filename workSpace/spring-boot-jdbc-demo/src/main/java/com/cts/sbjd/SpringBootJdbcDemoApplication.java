@@ -1,7 +1,10 @@
 package com.cts.sbjd;
 
+import java.util.Scanner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringBootJdbcDemoApplication {
@@ -10,4 +13,8 @@ public class SpringBootJdbcDemoApplication {
 		SpringApplication.run(SpringBootJdbcDemoApplication.class, args);
 	}
 
+	@Bean
+	public Scanner scan() {
+		return new Scanner(System.in);
+	}
 }
