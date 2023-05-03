@@ -285,6 +285,129 @@ Spring
                     price : double
                     packagedDate : LocalDate
         
+    Spring Web MVC on Spring Boot
+    ----------------------------------------------------------------------------------------------
+
+        Web MVC (Model - View - Controller)
+        -------------------------------------
+
+            Repositories <-model-> Services <-model-> Controllers <--------REQ------- Client
+                                                         |                                 ↑
+                                                         |                                 |
+                                                         | model                           |
+                                                         |                                 |
+                                                         ↓                                 |
+                                                        View(s) ------------RESP---------->|
+                                                (jsp/jsf/html/thymeleaf)
+
+
+
+        Single Front Controller Web MVC (Model - View - Controller)
+        --------------------------------------------------------------
+
+         Repositories <-model-> Services <-model-> Controllers <-model-> FrontController <-REQ-- Client
+                                                                            |                     ↑
+                                                                            |                     |
+                                                                            | model               |
+                                                                            |                     |
+                                                                            ↓                     |
+                                                                          View(s) -------RESP---->|
+                                                                    (jsp/jsf/html/thymeleaf)
+
+        In Spring Web MVC Framework
+
+            FrontController ?       
+                    DispatcherServlet   offered by the framework
+
+                    1. it receives all the requests from the clients
+                    2. it extract the information like url-path, query params / path params ..etc., from the request
+                    3. it will find out to which controller#action method this request has to be handed over
+                        and such action method from the identified controller is invoked 
+                    4. the returned view name from the action method and the return model from the action method
+                        are collected.
+                    5. a view mapping to the given view name is identified and the model is shared with the view.
+            
+            How are the requests mapped to a specific action of a specific controller?
+
+                UrlHandlerMapping       is an interface
+                    SimpleUrlHandlerMapping is one of its implementation.
+
+                    Each action and controller can be mapped to a particular url using an annotation 
+                        @RequestMapping(url,httpMethod)
+
+                        @Controller
+                        @RequestMapping("/emps")
+                        public class EmpController {
+                            
+                            //@RequestMapping(value="/list",method=HttpMethod.GET)
+                            @GetMapping("/list")
+                            public ModelAndView listAllEmployees(){
+                                //return some list of emps and veiwName
+                            }
+                        }
+
+                        assuming our web server is running on port number 9999
+
+                        http://localhost:9999/emps/list will be handled by the above mehtod.
+
+
+                        @RequestMapping
+                            @GetMapping
+                            @PostMApping
+                            @PutMapping
+                            @DeleteMapping
+                            ....etc.,
+
+
+        How are the ViewNames mapped to a specific VIEWS?
+
+            ViewResolver        is an interface
+                |
+                |- XmlResourceViewResolver
+                |- MessageBundleResourceViewResolver
+                |- InternalResourceViewResolver
+
+
+            InterlResourceViewResolver
+                prefix and suffix are two of its properties
+
+                view = prefix + viewName + suffix
+
+                if we have configured prefix="/pages/" and suffix=".jsp"
+                then for given viewNaem=index   the view path is /pages/index.jsp
+
+                order is another proeprty of a ViewResolver. it cna take an integer as a value.
+                in case of multiple view resolvers, the froncontroller will take the help of the 
+                view resolver in the givne order to figure out the view.
+
+        Controller?
+
+            is a POJO marked with @Controller .
+
+            1. the controller has to have a list of method that are capable of processing requests, and such
+                methods are called action methods.
+            2. the action method are expected to return a String (as view name) or a an object of ModelAndView class,
+                    where ModelAndView class binds a viewName and a model.
+
+        Views ?
+
+            is a server side executing program that is generally a combination of java and html.
+
+            these view will render complete html dynamically once some data (model) is supplied to them.
+
+            We have many view engines like 
+                JSP (JAva Server Pages)
+                Thyeamleaf
+                JSF (JAva Server Faces) 
+                XHTML ...etc.,
+
+            JSP is the view engine that we are gonna use.
+
+            
+
+
+
+
 
 
 
