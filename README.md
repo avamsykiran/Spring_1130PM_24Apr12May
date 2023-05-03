@@ -358,7 +358,6 @@ Spring
                             @DeleteMapping
                             ....etc.,
 
-
         How are the ViewNames mapped to a specific VIEWS?
 
             ViewResolver        is an interface
@@ -403,7 +402,11 @@ Spring
 
             JSP is the view engine that we are gonna use.
 
+
+        Java Server Pages
+
             
+
 
 
 
