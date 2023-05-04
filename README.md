@@ -285,6 +285,29 @@ Spring
                     price : double
                     packagedDate : LocalDate
         
+
+    Standard Java Dynamic Web Application Project Structure
+    ----------------------------------------------------------------------
+
+        my-web-project
+            | - src
+            | - webapp
+                 |- WEB-INF
+                 |      |- lib              //.jar                              managed by maven
+                 |      |- classes          //.class                            managed by maven (javac)
+                 |      |- viewsOrPages     //.html,.css,.js,.jsp ...etc.,      managed by developer
+                 |- META-INF
+                 |- web.xml                 // web deployment descriptor
+                                            // application title, number of servlet and their url mappings
+                                            // application or servlet level parameters like database configs, ..etc.,
+                                            // filters, tag libraries ..etc.,
+                                            // a list of home pages in order of presedency.
+
+                                            //is now replaced by a class called WebServletAdapter and
+                                            //all the above configs are done via annotations.
+                                            
+
+
     Spring Web MVC on Spring Boot
     ----------------------------------------------------------------------------------------------
 
@@ -395,13 +418,12 @@ Spring
             these view will render complete html dynamically once some data (model) is supplied to them.
 
             We have many view engines like 
-                JSP (JAva Server Pages)
+                JSP (Java Server Pages)
                 Thyeamleaf
                 JSF (JAva Server Faces) 
                 XHTML ...etc.,
 
             JSP is the view engine that we are gonna use.
-
 
         Java Server Pages
 
