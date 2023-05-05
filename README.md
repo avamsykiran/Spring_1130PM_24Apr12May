@@ -427,10 +427,108 @@ Spring
 
         Java Server Pages
 
-            
+            this is a view engine proposed by the same team who wrote Java Specifications.
+
+            is a combination of java embeded into html.
+
+            here java is used only for presentation logic, and html is employed for content.
+
+            Java is embed via five types of server side elements (tags):
+                1. Directives       
+                2. Expression
+                3. Declaratives
+                4. Scriplets
+                5. JSP-Actions
+
+            Directives
+
+                <%@ directiveName attributes..... %>
+
+                1. <%@ page import="" %>
+                2. <%@ taglib uri="" prefix="" %>
+
+            Expression
+
+                <%=javaExpression %>
+
+                java expression language as an alternate
+                ${ javaEL }
+
+                JSP Implicit Objects
+
+                    request     HttpServletRequest
+                    response    HttpServletResponse
+                    session     HttpSession
+                    application ServletContext
+                    config      ServletConfig
+                    exception   Exception
+
+                ${ attribute }
+
+                JSP will serach for this attribute in request , session , application
+
+                if the attribute is not a string or not a premitive value and is an object, then the fields of the object
+                can be directly accessed and are directed to the getter automatically:
+
+                ${ emp.firstName }  //this is understood as <%=emp.getFirstNAme() %>
+                ${ emp.married }    //this is understood as <%=emp.isMArried() %>
 
 
+            Declaratives
 
+                <%! declaration %>
+
+            Scriptlet
+
+                <%
+                    //any java code like if,for,....etc.,
+                %>
+
+                <% if(!team.isEmpty()) { %>
+                    <ol>
+                        <% for(String member : team) { %>
+                            <li> <%=member%> </li>
+                        <% } >
+                    </ol>
+                <% } %>
+
+                JSTL (Java standard tag library) Core Tags as alternate.
+
+
+                    <c:if test="${team.isEmpty()}">
+                        <p>No team members are found! </p>
+                    </c:if>
+
+                    <c:choose>
+                        <c:when test="${team==null}">
+                            <p>Sorry! unable to extract team from database. </p>
+                        </c:when>
+                        <c:when test="${team.isEmpth()}">
+                            <p>No team members are found! </p>
+                        </c:when>
+                        <c:otherwise>
+                            <h4> ${team.size()} team members are found </h4>
+
+                            <ol>
+                                <c:foreach items="${team}" var="member">
+                                    <li>${member} </li>
+                                </c:foreach>
+                            </ol>
+                        </c:otherwise>
+                    </c:choose>
+
+
+            JSP Actions
+
+                <jsp:actionName attributes>
+                </jsp:actionName>
+
+
+                <jsp:include page="" />
+
+                <jsp:forward page="' />
+                <jsp:useBean />
+                ...etc.,
 
 
 
