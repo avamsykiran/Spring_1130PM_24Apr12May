@@ -1,7 +1,12 @@
 package com.cts.sbwmd.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WelcomeController {
@@ -17,5 +22,26 @@ public class WelcomeController {
 	@GetMapping({"","/","/home"})
 	public String homePageAction() {
 		return "home";
+	}
+	
+	@RequestMapping("/header")
+	public ModelAndView getHeaderAction() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("header");
+		mv.addObject("appTitle", "HR Portal");
+		mv.addObject("today", LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MMMM-yyyy")));
+		
+		return mv;
+	}
+	
+	@RequestMapping("/footer")
+	public ModelAndView getFooterAction() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("footer");
+		mv.addObject("team", new String[] {"Vamsy","Kalab","Sharmilie","Keerthy"});
+		
+		return mv;
 	}
 }

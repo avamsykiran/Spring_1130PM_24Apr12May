@@ -517,7 +517,6 @@ Spring
                         </c:otherwise>
                     </c:choose>
 
-
             JSP Actions
 
                 <jsp:actionName attributes>

@@ -1,14 +1,19 @@
-<%@ page import="java.time.LocalDate" %>
-
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>My First Spring Web</title>
+		<title>Home Page </title>
 	</head>
 	<body>
-		<h5 style="text-align:right"> <%=LocalDate.now()%> </h5>
-		<h3 style="border-bottom: 1px solid #000000;">
-			A brand new spring web mvc power dymamic web app
-		</h3>
+	
+		<jsp:include page="/header" />
+	
+		<h2>Welcome Home!<h2>
+		<p>This is a small Spring Web MVC based web application running 
+			on Spring Boot and Embeded Tomcat Server and uses JSP as View Engine.
+		<p>
+		
+		<jsp:include page="/footer" />
+		
 	</body>
 </html>
+
