@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -20,8 +21,12 @@ public class WelcomeController {
 	 * */
 	
 	@GetMapping({"","/","/home"})
-	public String homePageAction() {
-		return "home";
+	public ModelAndView homePageAction( @RequestParam(name="unm",required = false) String userName ) {
+		String msg=null;
+		if(userName!=null) {
+			msg = "Hello " + userName;
+		}
+		return new ModelAndView("home","message",msg);
 	}
 	
 	@RequestMapping("/header")
