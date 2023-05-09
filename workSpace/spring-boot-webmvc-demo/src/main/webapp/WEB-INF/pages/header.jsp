@@ -25,6 +25,15 @@
 					<li class="nav-item">
 						<a class="nav-link active" href="/loan">Loan</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/friends">Friends</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/emps">Employees</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/emps/search">Search Employees</a>
+					</li>
 				</ul>
 			</div>
 		</div>
