@@ -20,6 +20,17 @@
 						<form:label path="salary">Salary</form:label>
 						<form:input path="salary" class="form-control" type="number" required="required" />
 					</div>
+					<div>
+						<form:label path="dateOfJoining">Join Date</form:label>
+						<form:input path="dateOfJoining" class="form-control" type="date" required="required" />
+					</div>
+					<div>
+						<form:label path="designation">Designation</form:label>
+						<form:select path="designation" class="form-control" required="required" >
+							<form:option value="">---SELECT---</form:option>
+							<form:options items="${designations}"/>
+						</form:select>
+					</div>
 					<div class="d-grid mt-2">
 						<button class="btn btn-primary">SAVE</button>
 					</div>

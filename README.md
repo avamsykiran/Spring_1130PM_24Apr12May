@@ -522,13 +522,24 @@ Spring
                 <jsp:actionName attributes>
                 </jsp:actionName>
 
-
                 <jsp:include page="" />
 
                 <jsp:forward page="' />
                 <jsp:useBean />
                 ...etc.,
 
+
+    Assignment :
+
+        Develop a Spring Boot Web MVC portla to list, insert, update and delete recods of Customer,
+        where Customer has teh follow properties
+                custoemrId : int
+                fullName : String
+                membershipFee : double
+                membershipType : MemebrshipType (PLATINUM | DAIMOND | GOLD | SILVER )
+                activationDate : LocalDate
+
+    
 
 
 

@@ -20,6 +20,8 @@
 									<th>Emp#</th>
 									<th>Name</th>
 									<th>Salary</th>
+									<th>Join Date</th>
+									<th>Designation</th>
 									<th>Actions</th>
 								</tr>
 							</thead>
@@ -29,6 +31,8 @@
 										<td>${emp.empId }</td>
 										<td>${emp.empName }</td>
 										<td>${emp.salary }</td>
+										<td>${emp.dateOfJoining }</td>
+										<td>${emp.designation }</td>
 										<td>
 											<a href="/emps/edit?id=${emp.empId }" class="btn btn-sm btn-secondary">EDIT</a>
 											<a href="/emps/delete?id=${emp.empId }" class="btn btn-sm btn-danger ml-2">DELETE</a>

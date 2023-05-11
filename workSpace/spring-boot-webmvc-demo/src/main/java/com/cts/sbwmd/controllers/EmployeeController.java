@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cts.sbwmd.model.Designation;
 import com.cts.sbwmd.model.Employee;
 import com.cts.sbwmd.services.EmployeeService;
 
@@ -18,6 +19,11 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService empService;
+	
+	@ModelAttribute("designations")
+	public Designation[] designations() {
+		return Designation.values();
+	}
 	
 	@GetMapping
 	public ModelAndView employeesListAction() {
