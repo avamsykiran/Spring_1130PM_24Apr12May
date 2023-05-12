@@ -531,7 +531,7 @@ Spring
 
     Assignment :
 
-        Develop a Spring Boot Web MVC portla to list, insert, update and delete recods of Customer,
+        Develop a Spring Boot Web MVC portal to list, insert, update and delete records of Customer,
         where Customer has teh follow properties
                 custoemrId : int
                 fullName : String

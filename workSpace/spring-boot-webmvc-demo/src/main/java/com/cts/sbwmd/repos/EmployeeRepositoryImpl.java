@@ -46,6 +46,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 	public static final String SELECT_ALL_QRY = "SELECT empid,ename,sal,desg,joindate FROM emps";
 	public static final String SELECT_BY_ID_QRY = "SELECT empid,ename,sal,desg,joindate FROM emps WHERE empId=:empId";
+	public static final String SELECT_BY_NAME_QRY = "SELECT empid,ename,sal,desg,joindate FROM emps WHERE ename LIKE :empName";
 	public static final String INS_QRY = "INSERT INTO emps(ename,sal,desg,joindate) VALUES(:empName,:salary,:designation,:dateOfJoining)";
 	public static final String UPD_QRY = "UPDATE emps SET ename=:empName, sal=:salary,desg=:designation,joindate=:dateOfJoining WHERE empId=:empId";
 	public static final String DEL_QRY = "DELETE FROM emps WHERE empId=:empId";
@@ -55,6 +56,11 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		return this.jdbcTemplate.query(SELECT_ALL_QRY, getRowMapper());
 	}
 
+	@Override
+	public List<Employee> findByEmployeeName(String empName){
+		return this.jdbcTemplate.query(SELECT_BY_NAME_QRY, Collections.singletonMap("empName","%"+empName+"%"),getRowMapper());
+	}
+	
 	@Override
 	public Employee findById(int empId) {
 		return this.jdbcTemplate.queryForObject(SELECT_BY_ID_QRY, Collections.singletonMap("empId",empId), getRowMapper());
